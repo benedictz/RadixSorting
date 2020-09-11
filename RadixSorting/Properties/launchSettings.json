@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "RadixSorting": {
+      "commandName": "Project",
+      "commandLineArgs": "10"
+    }
+  }
+}

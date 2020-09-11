@@ -1,0 +1,13 @@
+D:\bened\Programming Projects\RadixSorting\RadixSorting\bin\Debug\netcoreapp3.1\RadixSorting.exe
+D:\bened\Programming Projects\RadixSorting\RadixSorting\bin\Debug\netcoreapp3.1\RadixSorting.deps.json
+D:\bened\Programming Projects\RadixSorting\RadixSorting\bin\Debug\netcoreapp3.1\RadixSorting.runtimeconfig.json
+D:\bened\Programming Projects\RadixSorting\RadixSorting\bin\Debug\netcoreapp3.1\RadixSorting.runtimeconfig.dev.json
+D:\bened\Programming Projects\RadixSorting\RadixSorting\bin\Debug\netcoreapp3.1\RadixSorting.dll
+D:\bened\Programming Projects\RadixSorting\RadixSorting\bin\Debug\netcoreapp3.1\RadixSorting.pdb
+D:\bened\Programming Projects\RadixSorting\RadixSorting\obj\Debug\netcoreapp3.1\RadixSorting.csprojAssemblyReference.cache
+D:\bened\Programming Projects\RadixSorting\RadixSorting\obj\Debug\netcoreapp3.1\RadixSorting.AssemblyInfoInputs.cache
+D:\bened\Programming Projects\RadixSorting\RadixSorting\obj\Debug\netcoreapp3.1\RadixSorting.AssemblyInfo.cs
+D:\bened\Programming Projects\RadixSorting\RadixSorting\obj\Debug\netcoreapp3.1\RadixSorting.csproj.CoreCompileInputs.cache
+D:\bened\Programming Projects\RadixSorting\RadixSorting\obj\Debug\netcoreapp3.1\RadixSorting.dll
+D:\bened\Programming Projects\RadixSorting\RadixSorting\obj\Debug\netcoreapp3.1\RadixSorting.pdb
+D:\bened\Programming Projects\RadixSorting\RadixSorting\obj\Debug\netcoreapp3.1\RadixSorting.genruntimeconfig.cache
