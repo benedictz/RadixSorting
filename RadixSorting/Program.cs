@@ -14,12 +14,12 @@ namespace RadixSorting
             //  Both Radix Bucket and Radix Counting will be implemented, and either or both can be run.
 
             //  Create array for the initial values
-            int[] numArray;
+            string[] numArray;
 
             //  If the file doesn't exist
             //      Create a random set of values to populate the initial array
             //  Else
-            //      Parse the file
+            //      Parse the file, make sure all strings are 3 length
             //      Populate the array with the parsed values
 
             if (!File.Exists(args[0]))
@@ -29,22 +29,15 @@ namespace RadixSorting
             } else
             {
                 Console.WriteLine($"{args[0]} exists");
-                int arrayLength = File.ReadLines(args[0]).Count();
-                numArray = new int[arrayLength];
-                //numArray = Int32.TryParse(File.ReadLines("testvalues.txt").ToString(), out int values);
-
-                for (int i = 0; i < arrayLength; i++)
-                {
-                    //numArray[i] = File.
-                }
+                numArray = ParseFillNumberArray.Fill(args[0]);
             }
 
             
-
-            /*foreach (int val in numArray)
+            //  Print all values from initial array.
+            foreach (var val in numArray)
             {
                 Console.WriteLine(val);
-            }*/
+            }
         }
     }
 }
