@@ -14,29 +14,39 @@ namespace RadixSorting
             //  Both Radix Bucket and Radix Counting will be implemented, and either or both can be run.
 
             //  Create array for the initial values
-            string[] numArray;
+            string[] numArray = null;
 
-            //  If the file doesn't exist
-            //      Create a random set of values to populate the initial array
-            //  Else
-            //      Parse the file, make sure all strings are 3 length
-            //      Populate the array with the parsed values
+            //  If arguments are "rand" and a number
+            //      Generate that amount of random numbers
+            //  If file exists
+            //      Parse that file
 
-            if (!File.Exists(args[0]))
+            if (args[0] == "rand")
             {
-                Console.WriteLine($"{args[0]} doesn't exist, creating new numbers");
-                numArray = RandomNumberGenerator.Generate(10);
-            } else
+                Console.WriteLine($"Randomising {args[1]} numbers:");
+                numArray = RandomNumberGenerator.Generate(Int32.Parse(args[1]));
+            }
+            else
             {
-                Console.WriteLine($"{args[0]} exists");
-                numArray = ParseFillNumberArray.Fill(args[0]);
+                if (File.Exists(args[0]))
+                {
+                    Console.WriteLine($"{args[0]} exists:");
+                    numArray = ParseFillNumberArray.Fill(args[0]);
+                }
+                else
+                {
+                    Console.WriteLine($"{args[0]} doesn't exist");
+                }
             }
 
-            
+
             //  Print all values from initial array.
-            foreach (var val in numArray)
+            if (numArray != null)
             {
-                Console.WriteLine(val);
+                foreach (var val in numArray)
+                {
+                    Console.WriteLine(val);
+                }
             }
         }
     }
