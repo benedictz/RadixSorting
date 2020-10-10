@@ -45,7 +45,7 @@ namespace RadixSorting
             }
 
 
-            //  Print all values from initial array.
+            //  Print all values from initial array.    --DEBUG--
             if (numArray != null)
             {
                 Console.WriteLine("Raw values are:");
@@ -56,7 +56,7 @@ namespace RadixSorting
             }
 
             //  Begin Radix Sort using the Bucket method
-            //RadixSort.BucketVariant(numArray);
+            RadixSort.BucketVariant(numArray);
         }
     }
 }

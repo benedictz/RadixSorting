@@ -31,6 +31,18 @@ namespace RadixSorting
             List is now in order, return the number of steps taken to reach this list and the list itself to Main.
             */
 
+            Dictionary<int, int> buckets = new Dictionary<int, int>();
+            for (int i = 0; i <= 9; i++)
+            {
+                buckets.Add(i, 0);
+            }
+
+            //  Amount of numbers in each bucket.   --DEBUG--
+            foreach (var bucket in buckets)
+            {
+                Console.WriteLine($"Bucket {bucket.Key} has {bucket.Value} numbers");
+            }
+
             return initialArray;    //  Change to sorted list when complete
         }
     }
