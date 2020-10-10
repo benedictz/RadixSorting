@@ -12,23 +12,25 @@ namespace RadixSorting
         /// </summary>
         /// <param name="arrayLength">The amount of values to create in the array.</param>
         /// <returns></returns>
-        static public string[] Generate(int arrayLength)
+        static public List<string> Generate(int arrayLength)
         {
-            string[] numList = new string[arrayLength];
+            List<string> numList = new List<string>();
 
             Random rnd = new Random();
-            for (int i = 0; i < numList.Length; i++)
+            for (int i = 0; i < arrayLength; i++)
             {
                 string newNum = rnd.Next(0, 1000).ToString();
-                if (newNum.Length < 3)
+                if (newNum.Length < 3)  
                 {
                     for (int j = 0; j < 3 - newNum.Length; j++)
                     {
                         newNum = "0" + newNum;
                     }
                 }
-                numList[i] = newNum;
+                numList.Add(newNum);
             }
+            //  Obviously this creates the hard limit threshold of 3 digits per number, or a max value of 999.
+            //  Maybe I can rejig this logic later to dynamically scale based on input?
 
             return numList;
         }
