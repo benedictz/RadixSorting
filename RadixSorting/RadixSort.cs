@@ -33,17 +33,22 @@ namespace RadixSorting
             */
 
             //  Create the buckets for value swapping
-            Dictionary<int, List<string>> buckets = new Dictionary<int, List<string>>();
+            Dictionary<int, List<char[]>> buckets = new Dictionary<int, List<char[]>>();
             for (int i = 0; i <= 9; i++)
             {
-                buckets.Add(i, new List<string>());
+                buckets.Add(i, new List<char[]>());
             }
 
             //  For each element, sort into buckets based on each digit starting with the last
-            int counter = 0;
-            foreach (char[] charNum in initialList)
+            for (int i = 1; i <= 3; i++)    //Length(3) - i(1) is 2, which is where the current array's max is. Will find a way to make this dynamic later.
             {
+                Console.WriteLine($"Checking value at position {3 - i}");
+                foreach (char[] charNum in initialList)
+                {
+                    Console.WriteLine($"The value to be checked in {string.Join("", charNum)} is {charNum[charNum.Length - i]}");
+                }
             }
+            
 
             //  Amount of numbers in each bucket.   --DEBUG--
             /*foreach (var bucket in buckets)
