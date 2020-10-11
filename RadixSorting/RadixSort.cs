@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace RadixSorting
 {
     class RadixSort
     {
-        static public List<string> BucketVariant(List<string> initialArray)
+        static public List<char[]> BucketVariant(List<char[]> initialList)
         {
             /*
             Create 10 containers labelled 0-9
@@ -31,19 +32,26 @@ namespace RadixSorting
             List is now in order, return the number of steps taken to reach this list and the list itself to Main.
             */
 
-            Dictionary<int, int> buckets = new Dictionary<int, int>();
+            //  Create the buckets for value swapping
+            Dictionary<int, List<string>> buckets = new Dictionary<int, List<string>>();
             for (int i = 0; i <= 9; i++)
             {
-                buckets.Add(i, 0);
+                buckets.Add(i, new List<string>());
+            }
+
+            //  For each element, sort into buckets based on each digit starting with the last
+            int counter = 0;
+            foreach (char[] charNum in initialList)
+            {
             }
 
             //  Amount of numbers in each bucket.   --DEBUG--
-            foreach (var bucket in buckets)
+            /*foreach (var bucket in buckets)
             {
                 Console.WriteLine($"Bucket {bucket.Key} has {bucket.Value} numbers");
-            }
+            }*/
 
-            return initialArray;    //  Change to sorted list when complete
+            return initialList;    //  Change to sorted list when complete
         }
     }
 }

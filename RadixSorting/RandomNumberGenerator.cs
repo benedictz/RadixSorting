@@ -8,13 +8,13 @@ namespace RadixSorting
     class RandomNumberGenerator
     {
         /// <summary>
-        /// Creates a list of values between 0 and 1000 (non-inclusive) and parsing them to have 3 digits. Returns these values as a string array.
+        /// Creates a list of values between 0 and 1000 (non-inclusive) and parsing them to have 3 digits. Returns these values as a List of char arrays.
         /// </summary>
         /// <param name="arrayLength">The amount of values to create in the array.</param>
         /// <returns></returns>
-        static public List<string> Generate(int arrayLength)
+        static public List<char[]> Generate(int arrayLength)
         {
-            List<string> numList = new List<string>();
+            List<char[]> charList = new List<char[]>();
 
             Random rnd = new Random();
             for (int i = 0; i < arrayLength; i++)
@@ -27,12 +27,15 @@ namespace RadixSorting
                         newNum = "0" + newNum;
                     }
                 }
-                numList.Add(newNum);
+
+                char[] currentChar = newNum.ToCharArray();
+                charList.Add(currentChar);
             }
+
             //  Obviously this creates the hard limit threshold of 3 digits per number, or a max value of 999.
             //  Maybe I can rejig this logic later to dynamically scale based on input?
 
-            return numList;
+            return charList;
         }
     }
 }

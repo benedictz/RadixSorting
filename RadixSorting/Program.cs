@@ -17,7 +17,7 @@ namespace RadixSorting
             */
 
             //  Create array for the initial values
-            List<string> numArray = new List<string>();
+            List<char[]> numArray = new List<char[]>();
 
             /*
             If arguments are "rand" and a number
