@@ -2,41 +2,32 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 
 namespace RadixSorting
 {
     class Program
-    {
-        static void Main(string[] args)
-        {
-            /*
+    {       /*
             This program will take (or generate) a list of numbers between 0-1000, then use Radix Sort to sort them in ascending order.
             At the end of the sorting, it will show how many steps were taken by the program, allowing it to be compared to other
             sorting methods with a simple value.
             Both Radix Bucket and Radix Counting will be implemented, and either or both can be run.
             */
-
-            //  Create array for the initial values
-            List<char[]> numArray = new List<char[]>();
-
-            /*
-            If arguments are "rand" and a number
-                Generate that amount of random numbers
-            If file exists
-                Parse that file
-            */
+        static void Main(string[] args)
+        {
+            List<int[]> intArrayList = new List<int[]>();
 
             if (args[0] == "rand")
             {
                 Console.WriteLine($"Randomising {args[1]} numbers");
-                numArray = RandomNumberGenerator.Generate(Int32.Parse(args[1]));
+                intArrayList = RandomNumberGenerator.Generate(Int32.Parse(args[1]));
             }
             else
             {
                 if (File.Exists(args[0]))
                 {
                     Console.WriteLine($"{args[0]} exists");
-                    numArray = ParseFillNumberArray.Fill(args[0]);
+                    intArrayList = ParseFillNumberArray.Fill(args[0]);
                 }
                 else
                 {
@@ -45,18 +36,22 @@ namespace RadixSorting
             }
 
 
-            //  Print all values from initial array.    --DEBUG--
-            if (numArray != null)
+            //  Print all values from initial array.
+            if (intArrayList != null)
             {
-                Console.WriteLine("Raw values are:");
-                foreach (var val in numArray)
+                Console.WriteLine("Initial intArray values are:");
+                foreach (var val in intArrayList)
                 {
-                    Console.WriteLine(val);
+                    foreach (int i in val)
+                    {
+                        Console.Write(i);
+                    }
+                    Console.WriteLine();
                 }
             }
 
             //  Begin Radix Sort using the Bucket method
-            RadixSort.BucketVariant(numArray);
+            RadixSort.BucketVariant(intArrayList);
         }
     }
 }

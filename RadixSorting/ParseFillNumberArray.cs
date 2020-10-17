@@ -10,30 +10,21 @@ namespace RadixSorting
     class ParseFillNumberArray
     {
         /// <summary>
-        /// Creates a list of values by reading in an existing textfile and parsing them to have 3 digits. Returns these values as a List of char arrays.
+        /// Creates a list of values by reading in an existing textfile and parsing them to have 3 digits. Returns these values as a list of strings.
         /// </summary>
         /// <param name="fileName">File to read.</param>
         /// <returns></returns>
-        static public List<char[]> Fill(string fileName)
+        static public List<int[]> Fill(string fileName)
         {
-            List<char[]> charList = new List<char[]>();
+            List<int[]> numList = new List<int[]>();
             foreach (string line in File.ReadLines(fileName))
             {
                 string currentLine = line;
-                if (currentLine.Length < 3)
-                {
-                    Console.WriteLine($"--DEBUG--   {currentLine} isn't 3 digits long");
-                    for (int i = 0; i < 3 - line.Length; i++)
-                    {
-                        currentLine = "0" + currentLine;
-                    }
-                }
-
-                char[] currentNum = currentLine.ToCharArray();
-                charList.Add(currentNum);
+                int[] numArray = ToIntArray.Convert(int.Parse(currentLine));
+                numList.Add(numArray);
             }
 
-            return charList;
+            return numList;
         }
     }
 }
