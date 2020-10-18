@@ -42,18 +42,16 @@ namespace RadixSorting
                 Console.WriteLine("Initial intArray values are:");
                 foreach (var val in intArrayList)
                 {
-                    foreach (int i in val)
-                    {
-                        Console.Write(i);
-                    }
-                    Console.WriteLine();
+                    Console.WriteLine(string.Join("", val));
                 }
             }
 
             //  Begin Radix Sort using the Bucket method
             List<int[]> sortedList = RadixSort.BucketVariant(intArrayList);
+
+            //  Print result
             Console.WriteLine("List has been sorted:");
-            foreach (int[] intArray in sortedList)
+            foreach (var intArray in sortedList)
             {
                 Console.WriteLine(string.Join("", intArray));
             }
