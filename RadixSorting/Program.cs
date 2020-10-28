@@ -47,14 +47,17 @@ namespace RadixSorting
             }
 
             //  Begin Radix Sort using the Bucket method
-            List<int[]> sortedList = RadixSort.BucketVariant(intArrayList);
+            List<int[]> bucketSortedList = RadixSort.BucketVariant(intArrayList);
 
             //  Print result
             Console.WriteLine("List has been sorted:");
-            foreach (var intArray in sortedList)
+            foreach (var intArray in bucketSortedList)
             {
                 Console.WriteLine(string.Join("", intArray));
             }
+
+            //  Begin Radix Sort using the Counting method
+            List<int[]> countingSortedList = RadixSort.CountingVariant(intArrayList);
         }
     }
 }
