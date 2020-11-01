@@ -111,7 +111,7 @@ namespace RadixSorting
 
                     Console.WriteLine($"DEBUG - Checking inputList position {j} ({inputList[j][0]}{inputList[j][1]}{inputList[j][2]}) for its {3 - i} value, which is {inputList[j][3 - i]}");
                     Console.WriteLine($"counter value at {inputList[j][3 - i]} is {counterArray[inputList[j][3 - i]]}");
-                    outputList[counterArray[inputList[j][3 - 1]]] = inputList[j];
+                    outputList[1 - (counterArray[inputList[j][3 - 1]])] = inputList[j];
                     //Console.WriteLine($"Added {outputList[inputList[j][3 - 1]][0]}{outputList[inputList[j][3 - 1]][1]}{outputList[inputList[j][3 - 1]][2]}");
                 }
 
