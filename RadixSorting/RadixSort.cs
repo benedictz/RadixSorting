@@ -81,13 +81,18 @@ namespace RadixSorting
             int count = 0;
 
             //  Create outputList and counterArray
-            List<int[]> outputList = new List<int[]>(inputList);
+            List<int[]> outputList = new List<int[]>();
+            for (int x = 0; x < inputList.Count(); x++)
+            {
+                outputList.Add(null);
+            }
+
             int[] counterArray = {0,0,0,0,0,0,0,0,0,0};
 
             //  For each element
             for (int i = 1; i <= 3; i++)
             {
-                Console.WriteLine($"DEBUG - Checking digit {3 - i}");
+                Console.WriteLine($"Checking digit {3 - i}");
                 //  Add 1 to corresponding counter element of the same digit
                 foreach (var input in inputList)
                 {
@@ -101,21 +106,28 @@ namespace RadixSorting
                     if (j > 0)
                     {
                         counterArray[j] = counterArray[j - 1] + counterArray[j];
-                        Console.WriteLine($"New counter ({j}) is {counterArray[j]}");
                     }
+                    Console.WriteLine($"Counter ({j}) is now {counterArray[j]}");
                 }
 
                 //  Sort to outputList using prefix summed counterArray
-                for (int j = inputList.Count - 1; j >= 0; j--)
+                for (int k = inputList.Count - 1; k >= 0; k--)
                 {
+                    Console.WriteLine($"inputList {k} ({inputList[k][0]}{inputList[k][1]}{inputList[k][2]})'s {3 - i} value is {inputList[k][3 - i]}");
+                    Console.WriteLine($"counter value at {inputList[k][3 - i]} is {counterArray[inputList[k][3 - i]]}\n");
 
-                    Console.WriteLine($"DEBUG - Checking inputList position {j} ({inputList[j][0]}{inputList[j][1]}{inputList[j][2]}) for its {3 - i} value, which is {inputList[j][3 - i]}");
-                    Console.WriteLine($"counter value at {inputList[j][3 - i]} is {counterArray[inputList[j][3 - i]]}");
-                    outputList[1 - (counterArray[inputList[j][3 - 1]])] = inputList[j];
+                    counterArray[inputList[k][3 - i]] = counterArray[inputList[k][3 - i]] - 1;
+                    outputList[(counterArray[inputList[k][3 - i]])] = inputList[k];
                     //Console.WriteLine($"Added {outputList[inputList[j][3 - 1]][0]}{outputList[inputList[j][3 - 1]][1]}{outputList[inputList[j][3 - 1]][2]}");
                 }
 
                 //  Clear counterArray
+                for (int y = 0; y < counterArray.Count(); y++)
+                {
+                    Console.WriteLine($"Resetting {y}");
+                    counterArray[y] = 0;
+                }
+
                 //  Overwrite the inputList
             }
 
