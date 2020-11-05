@@ -51,6 +51,14 @@ namespace RadixSorting
             }
 
             Console.WriteLine($"Radix Bucket Sort took {count} steps to solve, using 10 buckets (0 to 9) to swap values.");
+
+            //  Print result
+            Console.WriteLine("List has been sorted:");
+            foreach (var intArray in swapList)
+            {
+                Console.WriteLine(string.Join("", intArray));
+            }
+
             return swapList;
         }
 
@@ -60,23 +68,7 @@ namespace RadixSorting
         /// <param name="inputList"></param>
         /// <returns></returns>
         static public List<int[]> CountingVariant(List<int[]> inputList)
-        {
-            //  Create 2 arrays
-                //  1 called output which we will use to copy values from and set as the new inputList, same size as inputList
-                //  1 called counts, storing the count of each digit
-            //  Starting from the first number in the inputList
-                //  Check the last element
-                    //Increment the counts array element corresponding to the last element
-            //  Compute the Prefix Sum:
-                //  From the first element on the count array, sum each element with the last value and set it as the current element
-                //  eg. 1, 0, 1, 2, 0, 1 becomes 1, 1, 2, 4, 4, 5
-            //  Starting from the last number in the inputList
-                //  Check the last element
-                    //  Check the corresponding count in that element's count in counterArray
-                    //  Subtract 1 from the count, that is the position that that number has to go
-                    //  eg. if number is 523, check the counted values in '3', then minus 1 from that count to get new index position
-           
-            
+        {            
             //  Counter for checking steps
             int count = 0;
 
@@ -92,12 +84,12 @@ namespace RadixSorting
             //  For each element
             for (int i = 1; i <= 3; i++)
             {
-                Console.WriteLine($"Checking digit {3 - i}");
+                //Console.WriteLine($"Checking digit {3 - i}");
                 //  Add 1 to corresponding counter element of the same digit
                 foreach (var input in inputList)
                 {
                     counterArray[input[3 - i]]++;
-                    Console.WriteLine($"Incremented value {input[3 - i]} to {counterArray[input[3 - i]]}");
+                    //Console.WriteLine($"Incremented value {input[3 - i]} to {counterArray[input[3 - i]]}");
                 }
 
                 //  Prefix Sum
@@ -107,14 +99,14 @@ namespace RadixSorting
                     {
                         counterArray[j] = counterArray[j - 1] + counterArray[j];
                     }
-                    Console.WriteLine($"Counter ({j}) is now {counterArray[j]}");
+                    //Console.WriteLine($"Counter ({j}) is now {counterArray[j]}");
                 }
 
                 //  Sort to outputList using prefix summed counterArray
                 for (int k = inputList.Count - 1; k >= 0; k--)
                 {
-                    Console.WriteLine($"inputList {k} ({inputList[k][0]}{inputList[k][1]}{inputList[k][2]})'s {3 - i} value is {inputList[k][3 - i]}");
-                    Console.WriteLine($"counter value at {inputList[k][3 - i]} is {counterArray[inputList[k][3 - i]]}\n");
+                    //Console.WriteLine($"inputList {k} ({inputList[k][0]}{inputList[k][1]}{inputList[k][2]})'s {3 - i} value is {inputList[k][3 - i]}");
+                    //Console.WriteLine($"counter value at {inputList[k][3 - i]} is {counterArray[inputList[k][3 - i]]}\n");
 
                     counterArray[inputList[k][3 - i]] = counterArray[inputList[k][3 - i]] - 1;
                     outputList[(counterArray[inputList[k][3 - i]])] = inputList[k];
@@ -124,7 +116,7 @@ namespace RadixSorting
                 //  Clear counterArray
                 for (int y = 0; y < counterArray.Count(); y++)
                 {
-                    Console.WriteLine($"Resetting {y}");
+                    //Console.WriteLine($"Resetting {y}");
                     counterArray[y] = 0;
                 }
 

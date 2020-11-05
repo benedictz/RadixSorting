@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
@@ -47,20 +48,20 @@ namespace RadixSorting
                 }
             }
 
-            /*
-            //  Begin Radix Sort using the Bucket method
-            List<int[]> bucketSortedList = RadixSort.BucketVariant(intArrayList);
 
-            //  Print result
-            Console.WriteLine("List has been sorted:");
-            foreach (var intArray in bucketSortedList)
-            {
-                Console.WriteLine(string.Join("", intArray));
-            }
-            */
+            //  Begin Radix Sort using the Bucket method
+            Stopwatch bucketWatch = Stopwatch.StartNew();
+            RadixSort.BucketVariant(intArrayList);
+            bucketWatch.Stop();
+            Console.WriteLine($"Bucket Variant took {bucketWatch.ElapsedTicks} ticks to complete");
+
+
 
             //  Begin Radix Sort using the Counting method
-            List<int[]> countingSortedList = RadixSort.CountingVariant(intArrayList);
+            Stopwatch countWatch = Stopwatch.StartNew();
+            RadixSort.CountingVariant(intArrayList);
+            countWatch.Stop();
+            Console.WriteLine($"Counting Variant took {countWatch.ElapsedTicks} ticks to complete");
         }
     }
 }
