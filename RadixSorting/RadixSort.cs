@@ -129,6 +129,15 @@ namespace RadixSorting
                 }
 
                 //  Overwrite the inputList
+                foreach (var output in outputList)
+                {
+                    Console.WriteLine($"{output[0]}{output[1]}{output[2]}");
+                }
+
+                for (int l = 0; l < outputList.Count(); l++)
+                {
+                    inputList[l] = outputList[l];
+                }
             }
 
             
