@@ -14,6 +14,7 @@ namespace RadixSorting
         /// <returns></returns>
         static public List<int[]> Generate(int listLength)
         {
+            Console.WriteLine($"Randomising {listLength} numbers");
             List<int[]> numList = new List<int[]>();
 
             Random rnd = new Random();
