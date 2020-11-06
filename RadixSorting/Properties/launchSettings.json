@@ -2,7 +2,7 @@
   "profiles": {
     "RadixSorting": {
       "commandName": "Project",
-      "commandLineArgs": "rand 5"
+      "commandLineArgs": "1000nums.txt"
     }
   }
 }

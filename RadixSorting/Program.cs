@@ -13,7 +13,7 @@ namespace RadixSorting
             This program will take (or generate) a list of numbers between 0-1000, then use Radix Sort to sort them in ascending order.
             At the end of the sorting, it will show how many steps were taken by the program, allowing it to be compared to other
             sorting methods with a simple value.
-            Both Radix Bucket and Radix Counting will be implemented, and either or both can be run.
+            Both Radix Bucket and Radix Counting will be run, with the results compared against each other.
             */
         static void Main(string[] args)
         {
@@ -37,31 +37,24 @@ namespace RadixSorting
                 }
             }
 
-
-            //  Print all values from initial array.
-            if (intArrayList != null)
-            {
-                Console.WriteLine("Initial intArray values are:");
-                foreach (var val in intArrayList)
-                {
-                    Console.WriteLine(string.Join("", val));
-                }
-            }
-
-
             //  Begin Radix Sort using the Bucket method
             Stopwatch bucketWatch = Stopwatch.StartNew();
-            RadixSort.BucketVariant(intArrayList);
+            List<int[]> bucketList = RadixSort.BucketVariant(intArrayList);
             bucketWatch.Stop();
             Console.WriteLine($"Bucket Variant took {bucketWatch.ElapsedTicks} ticks to complete");
 
-
-
             //  Begin Radix Sort using the Counting method
             Stopwatch countWatch = Stopwatch.StartNew();
-            RadixSort.CountingVariant(intArrayList);
+            List<int[]> countList = RadixSort.CountingVariant(intArrayList);
             countWatch.Stop();
             Console.WriteLine($"Counting Variant took {countWatch.ElapsedTicks} ticks to complete");
+
+            //  Print all lists
+            Console.WriteLine("InitialList\tBucketList\tCountList");
+            for (int i = 0; i < intArrayList.Count(); i++)
+            {
+                Console.WriteLine($"{string.Join("", intArrayList[i])}\t\t{string.Join("", bucketList[i])}\t\t{string.Join("", countList[i])}");
+            }
         }
     }
 }
