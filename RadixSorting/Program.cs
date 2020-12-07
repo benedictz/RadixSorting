@@ -3,20 +3,18 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Security.Cryptography.X509Certificates;
 
 namespace RadixSorting
 {
     /*
     This program will take (or generate) a list of numbers between 0-1000, then use Radix Sort to sort them in ascending order.
-    At the end of the sorting, it will show how many steps were taken by the program, allowing it to be compared to other
+    At the end of the sorting, it will show how much time was taken by the program, allowing it to be compared to other
     sorting methods with a simple value.
     Both Radix Bucket and Radix Counting will be run, with the results compared against each other.
     */
     class Program
     {
-        static List<int[]> fileCheck(string input)
+        static List<int[]> FileCheck(string input)
         {
             List<int[]> intArray = new List<int[]>();
             if (File.Exists(input))
@@ -53,7 +51,7 @@ namespace RadixSorting
                                 exit = true;
                                 break;
                             default:
-                                intArrayList = fileCheck(input);
+                                intArrayList = FileCheck(input);
                                 break;
                         }
                         break;
@@ -64,7 +62,7 @@ namespace RadixSorting
                             intArrayList = RandomNumberGenerator.Generate(Int32.Parse(Console.ReadLine()));
                         } else
                         {
-                            intArrayList = fileCheck(args[0]);
+                            intArrayList = FileCheck(args[0]);
                         }
                         break;
                     case 2:     //  User has input two options, likely 'rand #'

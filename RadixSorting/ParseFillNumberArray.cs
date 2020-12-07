@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.IO;
-using Microsoft.VisualBasic.CompilerServices;
 
 namespace RadixSorting
 {
     class ParseFillNumberArray
     {
         /// <summary>
-        /// Creates a list of values by reading in an existing textfile and parsing them to have 3 digits. Returns these values as a list of strings.
+        /// Creates a list of values by reading in an existing textfile and parsing them to have 3 digits. Returns these values as a list of integer arrays.
         /// </summary>
         /// <param name="fileName">File to read.</param>
         /// <returns></returns>

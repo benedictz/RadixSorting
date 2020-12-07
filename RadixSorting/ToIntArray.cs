@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace RadixSorting
+﻿namespace RadixSorting
 {
     class ToIntArray
     {
@@ -10,7 +6,7 @@ namespace RadixSorting
         /// Takes a 3 digit integer (or less) and converts it into an integer array of the 3 digits.
         /// </summary>
         /// <param name="num">The number to convert.</param>
-        /// <returns></returns>
+        /// <returns>Array of 3 integers representing the digits of the input integer</returns>
         static public int[] Convert(int num)
         {
             int currNum = num;
